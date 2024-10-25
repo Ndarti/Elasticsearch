@@ -1,0 +1,88 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"6a947a90-93aa-4f49-afbd-09a029a09fa7\" name=\"Changes\" comment=\"https://github.com/Ndarti/Elast.git\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2g.cfe\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2g.cfs\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2g.si\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2i.cfe\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2i.cfs\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2i.si\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2j.cfe\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2j.cfs\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/_2j.si\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/manifest-6.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/node-6.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/_state/segments_3b\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/_state/retention-leases-5.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/_state/state-4.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/translog/translog-7.tlog\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/_state/state-9.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/_state/retention-leases-7.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/_state/state-6.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/translog/translog-11.tlog\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/_state/state-13.st\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/es-data/snapshot_cache/segments_7\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <branch-grouping />\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"Ndarti\"\n  }\n}]]></component>\n  <component name=\"GithubDefaultAccount\">\n    <option name=\"defaultAccountId\" value=\"bf9239f6-c087-478d-9bb5-036cc5f20561\" />\n  </component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"git@github.com:/Ndarti/Elasticsearch.git\",\n    \"accountId\": \"bf9239f6-c087-478d-9bb5-036cc5f20561\"\n  }\n}]]></component>\n  <component name=\"ProblemsViewState\">\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2nrZCr5AHrYYKQ7GpQOhHzT4Hzh\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;onboarding.tips.debug.path&quot;: &quot;/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/Main.java&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;postgresql&quot;\n    ]\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"ElasticsearchProjectApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.elasticsearchproject.ElasticsearchProjectApplication\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"6a947a90-93aa-4f49-afbd-09a029a09fa7\" name=\"Changes\" comment=\"\" />\n      <created>1729733032493</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1729733032493</updated>\n      <workItem from=\"1729733034194\" duration=\"1492000\" />\n      <workItem from=\"1729734734442\" duration=\"3688000\" />\n      <workItem from=\"1729738842258\" duration=\"784000\" />\n      <workItem from=\"1729740341346\" duration=\"21910000\" />\n      <workItem from=\"1729793263861\" duration=\"26301000\" />\n      <workItem from=\"1729819939173\" duration=\"7000\" />\n      <workItem from=\"1729819952477\" duration=\"906000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"RECENT_FILTERS\">\n      <map>\n        <entry key=\"Branch\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"master\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"master\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n              <option name=\"TEXT_FILTER_SETTINGS\">\n                <TextFilterSettings>\n                  <option name=\"REGEX\" value=\"true\" />\n                </TextFilterSettings>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"https://github.com/Ndarti/Elast.git\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"https://github.com/Ndarti/Elast.git\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 77efd266d3c124d33ecc0d7af840181a0d88e796)
++++ b/.idea/workspace.xml	(date 1729821188123)
+@@ -4,35 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6a947a90-93aa-4f49-afbd-09a029a09fa7" name="Changes" comment="https://github.com/Ndarti/Elast.git">
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2g.cfe" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2g.cfs" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2g.si" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2i.cfe" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2i.cfs" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2i.si" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2j.cfe" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2j.cfs" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/_2j.si" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/manifest-6.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/node-6.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/_state/segments_3b" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/_state/retention-leases-5.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/_state/state-4.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/translog/translog-7.tlog" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/_state/state-9.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/_state/retention-leases-7.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/_state/state-6.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/translog/translog-11.tlog" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/_state/state-13.st" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/es-data/snapshot_cache/segments_7" beforeDir="false" />
+-    </list>
++    <list default="true" id="6a947a90-93aa-4f49-afbd-09a029a09fa7" name="Changes" comment="https://github.com/Ndarti/Elast.git" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="ChangesViewManager" show_ignored="true">
++    <option name="groupingKeys">
++      <option value="directory" />
++      <option value="module" />
++    </option>
+   </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+@@ -125,8 +107,33 @@
+       <workItem from="1729740341346" duration="21910000" />
+       <workItem from="1729793263861" duration="26301000" />
+       <workItem from="1729819939173" duration="7000" />
+-      <workItem from="1729819952477" duration="906000" />
++      <workItem from="1729819952477" duration="1236000" />
++    </task>
++    <task id="LOCAL-00001" summary="https://github.com/Ndarti/Elast.git">
++      <option name="closed" value="true" />
++      <created>1729820874923</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1729820874923</updated>
+     </task>
++    <task id="LOCAL-00002" summary="https://github.com/Ndarti/Elast.git">
++      <option name="closed" value="true" />
++      <created>1729821042385</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1729821042385</updated>
++    </task>
++    <task id="LOCAL-00003" summary="https://github.com/Ndarti/Elast.git">
++      <option name="closed" value="true" />
++      <created>1729821072472</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1729821072472</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
