@@ -1,0 +1,1283 @@
+Index: target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+new file mode 100644
+--- /dev/null	(date 1729818435114)
++++ b/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst	(date 1729818435114)
+@@ -0,0 +1,8 @@
++com/example/elasticsearchproject/controller/DataLoaderController.class
++com/example/elasticsearchproject/ElasticsearchProjectApplication.class
++com/example/elasticsearchproject/repository/ProductRepository.class
++com/example/elasticsearchproject/model/Product.class
++com/example/elasticsearchproject/config/PostgresConfig.class
++com/example/elasticsearchproject/config/ElasticsearchConfig.class
++com/example/elasticsearchproject/model/SKU.class
++com/example/elasticsearchproject/service/ElasticsearchDataLoaderService.class
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+new file mode 100644
+--- /dev/null	(date 1729815842989)
++++ b/pom.xml	(date 1729815842989)
+@@ -0,0 +1,157 @@
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++
++    <groupId>com.example</groupId>
++    <artifactId>elasticsearch-project</artifactId>
++    <version>1.0.0-SNAPSHOT</version>
++
++    <properties>
++        <java.version>17</java.version>
++        <spring-boot.version>3.1.4</spring-boot.version>
++    </properties>
++
++    <build>
++        <plugins>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-compiler-plugin</artifactId>
++                <version>3.8.1</version>
++                <configuration>
++                    <source>${java.version}</source>
++                    <target>${java.version}</target>
++                </configuration>
++            </plugin>
++
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-jar-plugin</artifactId>
++                <version>3.1.0</version>
++                <configuration>
++                    <archive>
++                        <manifest>
++                            <mainClass>com.example.elasticsearchproject.ElasticsearchProjectApplication</mainClass>
++                        </manifest>
++                    </archive>
++                </configuration>
++            </plugin>
++
++            <plugin>
++                <groupId>org.springframework.boot</groupId>
++                <artifactId>spring-boot-maven-plugin</artifactId>
++                <version>${spring-boot.version}</version>
++                <executions>
++                    <execution>
++                        <goals>
++                            <goal>repackage</goal>
++                        </goals>
++                    </execution>
++                </executions>
++            </plugin>
++
++            <plugin>
++                <groupId>org.flywaydb</groupId>
++                <artifactId>flyway-maven-plugin</artifactId>
++                <version>9.8.3</version>
++                <configuration>
++                    <url>jdbc:postgresql://localhost:5432/elasticsearchdb</url>
++                    <user>elasticuser</user>
++                    <password>2420000</password>
++                    <schemas>public</schemas>
++                </configuration>
++            </plugin>
++        </plugins>
++    </build>
++
++    <dependencies>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-data-jpa</artifactId>
++            <version>${spring-boot.version}</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-web</artifactId>
++            <version>${spring-boot.version}</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.postgresql</groupId>
++            <artifactId>postgresql</artifactId>
++            <version>42.7.2</version>
++            <scope>runtime</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>org.elasticsearch.client</groupId>
++            <artifactId>elasticsearch-rest-high-level-client</artifactId>
++            <version>7.10.2</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.projectlombok</groupId>
++            <artifactId>lombok</artifactId>
++            <version>1.18.22</version>
++            <scope>provided</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-test</artifactId>
++            <version>${spring-boot.version}</version>
++            <scope>test</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>jakarta.persistence</groupId>
++            <artifactId>jakarta.persistence-api</artifactId>
++            <version>3.1.0</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.hibernate.orm</groupId>
++            <artifactId>hibernate-core</artifactId>
++            <version>6.0.0.Final</version>
++        </dependency>
++
++        <dependency>
++            <groupId>com.h2database</groupId>
++            <artifactId>h2</artifactId>
++            <version>2.1.214</version>
++            <scope>test</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>co.elastic.clients</groupId>
++            <artifactId>elasticsearch-java</artifactId>
++            <version>8.2.3</version>
++        </dependency>
++
++        <dependency>
++            <groupId>org.flywaydb</groupId>
++            <artifactId>flyway-core</artifactId>
++            <version>9.8.3</version>
++        </dependency>
++
++        <dependency>
++            <groupId>com.fasterxml.jackson.core</groupId>
++            <artifactId>jackson-databind</artifactId>
++            <version>2.14.0</version>
++        </dependency>
++
++        <dependency>
++            <groupId>com.fasterxml.jackson.datatype</groupId>
++            <artifactId>jackson-datatype-jsr310</artifactId>
++            <version>2.14.0</version> <!-- Убедитесь, что версия совпадает -->
++        </dependency>
++
++        <dependency>
++            <groupId>org.apache.commons</groupId>
++            <artifactId>commons-dbcp2</artifactId>
++            <version>2.9.0</version>
++        </dependency>
++    </dependencies>
++</project>
++
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+new file mode 100644
+--- /dev/null	(date 1729794428528)
++++ b/.idea/dataSources.xml	(date 1729794428528)
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
++    <data-source source="LOCAL" name="elasticsearchdb@localhost" uuid="8d613790-2817-4c9c-b6ec-ce519917411d">
++      <driver-ref>postgresql</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
++      <jdbc-url>jdbc:postgresql://localhost:5432/elasticsearchdb</jdbc-url>
++      <jdbc-additional-properties>
++        <property name="com.intellij.clouds.kubernetes.db.host.port" />
++        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
++        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
++        <property name="com.intellij.clouds.kubernetes.db.container.port" />
++      </jdbc-additional-properties>
++      <working-dir>$ProjectFileDir$</working-dir>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file
+Index: target/classes/templates/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/templates/index.html b/target/classes/templates/index.html
+new file mode 100644
+--- /dev/null	(date 1729815956385)
++++ b/target/classes/templates/index.html	(date 1729815956385)
+@@ -0,0 +1,9 @@
++<!DOCTYPE html>
++<html>
++<head>
++    <title>Home</title>
++</head>
++<body>
++<h1>Welcome to your Spring Boot application!</h1>
++</body>
++</html>
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+new file mode 100644
+--- /dev/null	(date 1729815704683)
++++ b/src/main/resources/application.properties	(date 1729815704683)
+@@ -0,0 +1,21 @@
++# ????????? ??????????? ? PostgreSQL
++spring.datasource.url=jdbc:postgresql://localhost:5432/elasticsearchdb
++spring.datasource.username=elasticuser
++spring.datasource.password=2420000
++spring.datasource.driver-class-name=org.postgresql.Driver
++spring.flyway.enabled=true
++spring.flyway.locations=classpath:db/migration
++server.port=8085
++logging.level.org.springframework=DEBUG
++spring.flyway.baseline-on-migrate=true
++spring.flyway.baseline-version=1
++
++logging.level.com.example=DEBUG
++
++
++# ????????? JPA
++spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
++spring.jpa.hibernate.ddl-auto=update
++spring.jpa.show-sql=true
++spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
++spring.jpa.properties.hibernate.hbm2ddl.auto=update
+Index: src/main/java/com/example/elasticsearchproject/model/SKU.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/model/SKU.java b/src/main/java/com/example/elasticsearchproject/model/SKU.java
+new file mode 100644
+--- /dev/null	(date 1729817899151)
++++ b/src/main/java/com/example/elasticsearchproject/model/SKU.java	(date 1729817899151)
+@@ -0,0 +1,64 @@
++package com.example.elasticsearchproject.model;
++
++import com.fasterxml.jackson.annotation.JsonIgnore; // Импорт аннотации
++import jakarta.persistence.*;
++import java.math.BigDecimal;
++
++@Entity
++public class SKU {
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++
++    @Column(name = "sku_code")
++    private String skuCode;
++
++    private String description;
++    private BigDecimal price;
++
++    @ManyToOne
++    @JoinColumn(name = "product_id")
++    @JsonIgnore // Игнорировать сериализацию для предотвращения циклических зависимостей
++    private Product product;
++
++    // Getters and Setters
++    public Long getId() {
++        return id;
++    }
++
++    public void setId(Long id) {
++        this.id = id;
++    }
++
++    public String getSkuCode() {
++        return skuCode;
++    }
++
++    public void setSkuCode(String skuCode) {
++        this.skuCode = skuCode;
++    }
++
++    public String getDescription() {
++        return description;
++    }
++
++    public void setDescription(String description) {
++        this.description = description;
++    }
++
++    public BigDecimal getPrice() {
++        return price;
++    }
++
++    public void setPrice(BigDecimal price) {
++        this.price = price;
++    }
++
++    public Product getProduct() {
++        return product;
++    }
++
++    public void setProduct(Product product) {
++        this.product = product;
++    }
++}
+Index: es-data/nodes
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/es-data/nodes b/es-data/nodes
+new file mode 100644
+--- /dev/null	(date 1729736117724)
++++ b/es-data/nodes	(date 1729736117724)
+@@ -0,0 +1,1 @@
++written by Elasticsearch v8.2.3 to prevent a downgrade to a version prior to v8.0.0 which would result in data loss
+\ No newline at end of file
+Index: src/main/resources/templates/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/templates/index.html b/src/main/resources/templates/index.html
+new file mode 100644
+--- /dev/null	(date 1729745409541)
++++ b/src/main/resources/templates/index.html	(date 1729745409541)
+@@ -0,0 +1,9 @@
++<!DOCTYPE html>
++<html>
++<head>
++    <title>Home</title>
++</head>
++<body>
++<h1>Welcome to your Spring Boot application!</h1>
++</body>
++</html>
+Index: target/classes/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application.properties b/target/classes/application.properties
+new file mode 100644
+--- /dev/null	(date 1729815956386)
++++ b/target/classes/application.properties	(date 1729815956386)
+@@ -0,0 +1,21 @@
++# ????????? ??????????? ? PostgreSQL
++spring.datasource.url=jdbc:postgresql://localhost:5432/elasticsearchdb
++spring.datasource.username=elasticuser
++spring.datasource.password=2420000
++spring.datasource.driver-class-name=org.postgresql.Driver
++spring.flyway.enabled=true
++spring.flyway.locations=classpath:db/migration
++server.port=8085
++logging.level.org.springframework=DEBUG
++spring.flyway.baseline-on-migrate=true
++spring.flyway.baseline-version=1
++
++logging.level.com.example=DEBUG
++
++
++# ????????? JPA
++spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
++spring.jpa.hibernate.ddl-auto=update
++spring.jpa.show-sql=true
++spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
++spring.jpa.properties.hibernate.hbm2ddl.auto=update
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1729733031708)
++++ b/.gitignore	(date 1729733031708)
+@@ -0,0 +1,29 @@
++### IntelliJ IDEA ###
++out/
++!**/src/main/**/out/
++!**/src/test/**/out/
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++bin/
++!**/src/main/**/bin/
++!**/src/test/**/bin/
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
+\ No newline at end of file
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+new file mode 100644
+--- /dev/null	(date 1729733031713)
++++ b/src/Main.java	(date 1729733031713)
+@@ -0,0 +1,15 @@
++//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
++// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
++public class Main {
++    public static void main(String[] args) {
++        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
++        // to see how IntelliJ IDEA suggests fixing it.
++        System.out.printf("Hello and welcome!");
++
++        for (int i = 1; i <= 5; i++) {
++            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
++            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
++            System.out.println("i = " + i);
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/resources/db/migration/V2__Add_Foreign_Key_And_Insert_Data.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/db/migration/V2__Add_Foreign_Key_And_Insert_Data.sql b/src/main/resources/db/migration/V2__Add_Foreign_Key_And_Insert_Data.sql
+new file mode 100644
+--- /dev/null	(date 1729808066609)
++++ b/src/main/resources/db/migration/V2__Add_Foreign_Key_And_Insert_Data.sql	(date 1729808066609)
+@@ -0,0 +1,19 @@
++
++
++-- Заполнение таблицы product (20 продуктов)
++DO $$
++    BEGIN
++        FOR i IN 1..20 LOOP
++                INSERT INTO product (name, description, active, start_date)
++                VALUES
++                    ('Product ' || i, 'Description for Product ' || i, (i % 2 = 0), CURRENT_DATE + (i * INTERVAL '1 day'));
++            END LOOP;
++    END $$;
++-- Заполнение таблицы sku (50 SKU)
++DO $$
++    BEGIN
++        FOR i IN 1..50 LOOP
++                INSERT INTO sku (sku_code, description, price, product_id) VALUES
++                    ('SKU' || LPAD(i::text, 3, '0'), 'Description for SKU ' || i, ROUND((50 + RANDOM() * 150)::numeric, 2), (i % 20) + 1);
++            END LOOP;
++    END $$;
+\ No newline at end of file
+Index: target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+new file mode 100644
+--- /dev/null	(date 1729816093138)
++++ b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst	(date 1729816093138)
+@@ -0,0 +1,8 @@
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/ElasticsearchProjectApplication.java
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/model/Product.java
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/repository/ProductRepository.java
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/model/SKU.java
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/service/ElasticsearchDataLoaderService.java
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/config/ElasticsearchConfig.java
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/config/PostgresConfig.java
++/home/liza/Рабочий стол/PhpstormProjects/Elasticsearch/src/main/java/com/example/elasticsearchproject/controller/DataLoaderController.java
+Index: src/main/java/com/example/elasticsearchproject/config/ElasticsearchConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/config/ElasticsearchConfig.java b/src/main/java/com/example/elasticsearchproject/config/ElasticsearchConfig.java
+new file mode 100644
+--- /dev/null	(date 1729761814954)
++++ b/src/main/java/com/example/elasticsearchproject/config/ElasticsearchConfig.java	(date 1729761814954)
+@@ -0,0 +1,20 @@
++package com.example.elasticsearchproject.config;
++
++import co.elastic.clients.elasticsearch.ElasticsearchClient;
++import co.elastic.clients.transport.rest_client.RestClientTransport;
++import org.apache.http.HttpHost;
++import org.elasticsearch.client.RestClient;
++import org.springframework.context.annotation.Bean;
++import org.springframework.context.annotation.Configuration;
++import co.elastic.clients.json.jackson.JacksonJsonpMapper;
++
++@Configuration
++public class ElasticsearchConfig {
++
++    @Bean
++    public ElasticsearchClient elasticsearchClient() {
++        RestClient restClient = RestClient.builder(new HttpHost("localhost", 9200, "http")).build();
++        RestClientTransport transport = new RestClientTransport(restClient, new JacksonJsonpMapper());
++        return new ElasticsearchClient(transport);
++    }
++}
+Index: src/main/java/com/example/elasticsearchproject/config/PostgresConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/config/PostgresConfig.java b/src/main/java/com/example/elasticsearchproject/config/PostgresConfig.java
+new file mode 100644
+--- /dev/null	(date 1729809834673)
++++ b/src/main/java/com/example/elasticsearchproject/config/PostgresConfig.java	(date 1729809834673)
+@@ -0,0 +1,44 @@
++package com.example.elasticsearchproject.config;
++import org.hibernate.jpa.HibernatePersistenceProvider;
++
++import javax.sql.DataSource;
++import jakarta.persistence.*;
++import org.apache.commons.dbcp2.BasicDataSource;
++import org.springframework.context.annotation.Bean;
++import org.springframework.context.annotation.Configuration;
++import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
++import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
++import org.springframework.orm.jpa.JpaTransactionManager;
++import org.springframework.transaction.PlatformTransactionManager;
++import jakarta.persistence.EntityManagerFactory;
++
++@Configuration
++@EnableJpaRepositories(basePackages = "com.example.elasticsearchproject.repository")
++public class PostgresConfig {
++
++    @Bean
++    public DataSource dataSource() {
++        BasicDataSource dataSource = new BasicDataSource();
++        dataSource.setUrl("jdbc:postgresql://localhost:5432/elasticsearchdb");
++        dataSource.setUsername("elasticuser"); // Замените на ваше имя пользователя
++        dataSource.setPassword("2420000"); // Замените на ваш пароль
++        dataSource.setDriverClassName("org.postgresql.Driver");
++        return dataSource;
++    }
++
++
++    @Bean
++    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
++        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
++        em.setDataSource(dataSource);
++        em.setPackagesToScan("com.example.elasticsearchproject.model"); // Пакет с сущностями
++        em.setPersistenceProviderClass(HibernatePersistenceProvider.class); // Добавление Hibernate как провайдера
++        return em;
++    }
++
++
++    @Bean
++    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
++        return new JpaTransactionManager(entityManagerFactory);
++    }
++}
+Index: target/maven-archiver/pom.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/maven-archiver/pom.properties b/target/maven-archiver/pom.properties
+new file mode 100644
+--- /dev/null	(date 1729815957832)
++++ b/target/maven-archiver/pom.properties	(date 1729815957832)
+@@ -0,0 +1,4 @@
++#Created by Apache Maven 3.6.3
++groupId=com.example
++artifactId=elasticsearch-project
++version=1.0.0-SNAPSHOT
+Index: src/main/java/com/example/elasticsearchproject/service/ElasticsearchDataLoaderService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/service/ElasticsearchDataLoaderService.java b/src/main/java/com/example/elasticsearchproject/service/ElasticsearchDataLoaderService.java
+new file mode 100644
+--- /dev/null	(date 1729814956171)
++++ b/src/main/java/com/example/elasticsearchproject/service/ElasticsearchDataLoaderService.java	(date 1729814956171)
+@@ -0,0 +1,72 @@
++package com.example.elasticsearchproject.service;
++
++import co.elastic.clients.elasticsearch.ElasticsearchClient;
++import co.elastic.clients.elasticsearch.core.IndexRequest;
++import com.example.elasticsearchproject.model.Product;
++import com.example.elasticsearchproject.model.SKU;
++import com.example.elasticsearchproject.repository.ProductRepository;
++import org.slf4j.Logger;
++import org.slf4j.LoggerFactory;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++import java.io.IOException;
++import java.util.List;
++
++@Service
++public class ElasticsearchDataLoaderService {
++
++    private static final Logger logger = LoggerFactory.getLogger(ElasticsearchDataLoaderService.class);
++    private final ElasticsearchClient elasticsearchClient;
++    private final ProductRepository productRepository;
++
++    @Autowired
++    public ElasticsearchDataLoaderService(ElasticsearchClient elasticsearchClient, ProductRepository productRepository) {
++        this.elasticsearchClient = elasticsearchClient;
++        this.productRepository = productRepository;
++    }
++
++    public void loadData() throws IOException {
++        // Получаем все продукты из базы данных
++        List<Product> products = productRepository.findAll();
++
++        // Для каждого продукта индексируем его данные вместе с данными SKU
++        for (Product product : products) {
++            // Для каждого продукта получаем список связанных SKU
++            List<SKU> skus = product.getSkus();
++
++            // Индексируем продукт в Elasticsearch
++            IndexRequest<Product> request = IndexRequest.of(i -> i
++                    .index("products") // Убедитесь, что индекс называется "products"
++                    .id(product.getId().toString())
++                    .document(product)
++            );
++
++            try {
++                elasticsearchClient.index(request);
++                logger.info("Загружен продукт: {}", product);
++            } catch (IOException e) {
++                logger.error("Ошибка при загрузке продукта {}: {}", product.getId(), e.getMessage());
++                throw e; // Вы можете обработать исключение по своему усмотрению
++            }
++
++            // Индексируем каждое SKU, привязанное к продукту
++            for (SKU sku : skus) {
++                IndexRequest<SKU> skuRequest = IndexRequest.of(i -> i
++                        .index("skus") // Убедитесь, что индекс называется "skus"
++                        .id(sku.getId().toString())
++                        .document(sku)
++                );
++
++                try {
++                    elasticsearchClient.index(skuRequest);
++                    logger.info("Загружен SKU: {}", sku);
++                } catch (IOException e) {
++                    logger.error("Ошибка при загрузке SKU {}: {}", sku.getId(), e.getMessage());
++                }
++            }
++        }
++
++        logger.info("Данные успешно загружены в Elasticsearch.");
++    }
++}
+Index: src/main/java/com/example/elasticsearchproject/repository/ProductRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/repository/ProductRepository.java b/src/main/java/com/example/elasticsearchproject/repository/ProductRepository.java
+new file mode 100644
+--- /dev/null	(date 1729811428492)
++++ b/src/main/java/com/example/elasticsearchproject/repository/ProductRepository.java	(date 1729811428492)
+@@ -0,0 +1,18 @@
++package com.example.elasticsearchproject.repository;
++
++import com.example.elasticsearchproject.model.Product;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++
++import java.util.List;
++
++@Repository
++public interface ProductRepository extends JpaRepository<Product, Long> {
++    // Метод для получения всех активных продуктов
++    List<Product> findByActiveTrue();
++
++    // Метод для фильтрации продуктов по дате начала
++    List<Product> findByStartDateAfter(String startDate);
++
++    // Дополнительные методы запроса можно добавить здесь, если потребуется
++}
+Index: src/main/java/com/example/elasticsearchproject/controller/DataLoaderController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/controller/DataLoaderController.java b/src/main/java/com/example/elasticsearchproject/controller/DataLoaderController.java
+new file mode 100644
+--- /dev/null	(date 1729818423418)
++++ b/src/main/java/com/example/elasticsearchproject/controller/DataLoaderController.java	(date 1729818423418)
+@@ -0,0 +1,34 @@
++package com.example.elasticsearchproject.controller;
++
++import com.example.elasticsearchproject.service.ElasticsearchDataLoaderService;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.http.HttpStatus;
++import org.springframework.http.ResponseEntity;
++import org.springframework.web.bind.annotation.PostMapping;
++import org.springframework.web.bind.annotation.RequestMapping;
++import org.springframework.web.bind.annotation.RestController;
++
++@RestController
++@RequestMapping("/api/data")
++public class DataLoaderController {
++
++    private final ElasticsearchDataLoaderService dataLoaderService;
++
++    @Autowired
++    public DataLoaderController(ElasticsearchDataLoaderService dataLoaderService) {
++        this.dataLoaderService = dataLoaderService;
++    }
++
++    @PostMapping("/load")
++    public ResponseEntity<String> loadDataToElasticsearch() {
++        try {
++            dataLoaderService.loadData();
++            return ResponseEntity.ok("Данные успешно загружены в Elasticsearch.");
++        } catch (Exception e) {
++            // Логирование ошибки (опционально)
++            // logger.error("Ошибка загрузки данных в Elasticsearch: ", e);
++            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
++                    .body("Ошибка загрузки данных: " + e.getMessage());
++        }
++    }
++}
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1729742820057)
++++ b/.idea/uiDesigner.xml	(date 1729742820057)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/com/example/elasticsearchproject/ElasticsearchProjectApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/ElasticsearchProjectApplication.java b/src/main/java/com/example/elasticsearchproject/ElasticsearchProjectApplication.java
+new file mode 100644
+--- /dev/null	(date 1729743589410)
++++ b/src/main/java/com/example/elasticsearchproject/ElasticsearchProjectApplication.java	(date 1729743589410)
+@@ -0,0 +1,12 @@
++package com.example.elasticsearchproject;
++
++import org.springframework.boot.SpringApplication;
++import org.springframework.boot.autoconfigure.SpringBootApplication;
++
++@SpringBootApplication
++public class ElasticsearchProjectApplication {
++
++    public static void main(String[] args) {
++        SpringApplication.run(ElasticsearchProjectApplication.class, args);
++    }
++}
+Index: src/main/resources/db/migration/V1__Create_Product_and_SKU_tables.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/db/migration/V1__Create_Product_and_SKU_tables.sql b/src/main/resources/db/migration/V1__Create_Product_and_SKU_tables.sql
+new file mode 100644
+--- /dev/null	(date 1729808131003)
++++ b/src/main/resources/db/migration/V1__Create_Product_and_SKU_tables.sql	(date 1729808131003)
+@@ -0,0 +1,21 @@
++-- V1__Create_Product_and_SKU_Tables.sql
++CREATE TABLE product (
++                         id SERIAL PRIMARY KEY,
++                         name VARCHAR(255) NOT NULL,  -- исправить тип данных
++                         description TEXT,
++                         price DECIMAL(10, 2),
++                         active BOOLEAN DEFAULT TRUE,
++                         start_date DATE
++);
++
++CREATE TABLE sku (
++                     id SERIAL PRIMARY KEY,
++                     sku_code VARCHAR(100) NOT NULL,
++                     description TEXT,
++                     price DECIMAL(10, 2),
++                     product_id INT NOT NULL,
++                     CONSTRAINT fk_product
++                         FOREIGN KEY(product_id)
++                             REFERENCES product(id)
++                             ON DELETE CASCADE
++);
+Index: docker-compose.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/docker-compose.yml b/docker-compose.yml
+new file mode 100644
+--- /dev/null	(date 1729811577974)
++++ b/docker-compose.yml	(date 1729811577974)
+@@ -0,0 +1,21 @@
++version: '3.8'
++services:
++  postgres:
++    image: postgres:14
++    environment:
++      POSTGRES_USER: elasticuser
++      POSTGRES_PASSWORD: 2420000
++      POSTGRES_DB: elasticsearchdb
++    ports:
++      - "5433:5432"
++    volumes:
++      - ./db-data:/var/lib/postgresql/data
++  elasticsearch:
++    image: elasticsearch:8.2.3
++    environment:
++      - discovery.type=single-node
++    ports:
++      - "9200:9200"
++      - "9300:9300"
++    volumes:
++      - ./es-data:/usr/share/elasticsearch/data
+Index: Elasticsearch.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Elasticsearch.iml b/Elasticsearch.iml
+new file mode 100644
+--- /dev/null	(date 1729738058470)
++++ b/Elasticsearch.iml	(date 1729738058470)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="AdditionalModuleElements">
++    <content url="file://$MODULE_DIR$" dumb="true">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1729738058472)
++++ b/.idea/modules.xml	(date 1729738058472)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/Elasticsearch.iml" filepath="$PROJECT_DIR$/Elasticsearch.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: target/classes/db/migration/V1__Create_Product_and_SKU_tables.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/db/migration/V1__Create_Product_and_SKU_tables.sql b/target/classes/db/migration/V1__Create_Product_and_SKU_tables.sql
+new file mode 100644
+--- /dev/null	(date 1729815956385)
++++ b/target/classes/db/migration/V1__Create_Product_and_SKU_tables.sql	(date 1729815956385)
+@@ -0,0 +1,21 @@
++-- V1__Create_Product_and_SKU_Tables.sql
++CREATE TABLE product (
++                         id SERIAL PRIMARY KEY,
++                         name VARCHAR(255) NOT NULL,  -- исправить тип данных
++                         description TEXT,
++                         price DECIMAL(10, 2),
++                         active BOOLEAN DEFAULT TRUE,
++                         start_date DATE
++);
++
++CREATE TABLE sku (
++                     id SERIAL PRIMARY KEY,
++                     sku_code VARCHAR(100) NOT NULL,
++                     description TEXT,
++                     price DECIMAL(10, 2),
++                     product_id INT NOT NULL,
++                     CONSTRAINT fk_product
++                         FOREIGN KEY(product_id)
++                             REFERENCES product(id)
++                             ON DELETE CASCADE
++);
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1729738058475)
++++ b/.idea/misc.xml	(date 1729738058475)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1729733035730)
++++ b/.idea/vcs.xml	(date 1729733035730)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1729733036366)
++++ b/.idea/.gitignore	(date 1729733036366)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/sqldialects.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sqldialects.xml b/.idea/sqldialects.xml
+new file mode 100644
+--- /dev/null	(date 1729807483078)
++++ b/.idea/sqldialects.xml	(date 1729807483078)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="SqlDialectMappings">
++    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_Product_and_SKU_tables.sql" dialect="PostgreSQL" />
++    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V2__Add_Foreign_Key_And_Insert_Data.sql" dialect="PostgreSQL" />
++    <file url="PROJECT" dialect="PostgreSQL" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1729739096652)
++++ b/.idea/jarRepositories.xml	(date 1729739096652)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1729738058476)
++++ b/.idea/compiler.xml	(date 1729738058476)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="Elasticsearch" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/com/example/elasticsearchproject/model/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/elasticsearchproject/model/Product.java b/src/main/java/com/example/elasticsearchproject/model/Product.java
+new file mode 100644
+--- /dev/null	(date 1729817838632)
++++ b/src/main/java/com/example/elasticsearchproject/model/Product.java	(date 1729817838632)
+@@ -0,0 +1,75 @@
++package com.example.elasticsearchproject.model;
++
++import jakarta.persistence.*;
++import java.time.LocalDate;
++import java.util.List;
++import com.fasterxml.jackson.annotation.JsonFormat;
++import com.fasterxml.jackson.annotation.JsonIgnore; // Импорт аннотации
++
++@Entity
++public class Product {
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++
++    private String name;
++    private String description;
++    private Boolean active;
++
++    @Column(name = "start_date")
++    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
++    private LocalDate startDate;
++
++    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
++    @JsonIgnore // Игнорировать сериализацию, если это вызывает проблемы
++    private List<SKU> skus;
++
++    // Getters and Setters
++    public Long getId() {
++        return id;
++    }
++
++    public void setId(Long id) {
++        this.id = id;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getDescription() {
++        return description;
++    }
++
++    public void setDescription(String description) {
++        this.description = description;
++    }
++
++    public Boolean getActive() {
++        return active;
++    }
++
++    public void setActive(Boolean active) {
++        this.active = active;
++    }
++
++    public LocalDate getStartDate() {
++        return startDate;
++    }
++
++    public void setStartDate(LocalDate startDate) {
++        this.startDate = startDate;
++    }
++
++    public List<SKU> getSkus() {
++        return skus;
++    }
++
++    public void setSkus(List<SKU> skus) {
++        this.skus = skus;
++    }
++}
+diff --git a/es-data/node.lock b/es-data/node.lock
+new file mode 100644
+diff --git a/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/index/write.lock b/es-data/indices/Ow7OKpwvTLmyqMEFZetQ_w/0/index/write.lock
+new file mode 100644
+diff --git a/es-data/_state/write.lock b/es-data/_state/write.lock
+new file mode 100644
+diff --git a/es-data/snapshot_cache/write.lock b/es-data/snapshot_cache/write.lock
+new file mode 100644
+diff --git a/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/index/write.lock b/es-data/indices/Ne9VrTZdTVq5fz3hv2H6Lg/0/index/write.lock
+new file mode 100644
